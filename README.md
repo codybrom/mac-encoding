@@ -1,5 +1,7 @@
 # mac-encoding
 
+[![crates.io](https://img.shields.io/crates/v/mac-encoding.svg)](https://crates.io/crates/mac-encoding)
+[![docs.rs](https://docs.rs/mac-encoding/badge.svg)](https://docs.rs/mac-encoding)
 [![CI](https://github.com/codybrom/mac-encoding/actions/workflows/ci.yml/badge.svg)](https://github.com/codybrom/mac-encoding/actions/workflows/ci.yml)
 [![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#license)
 
