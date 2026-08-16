@@ -1,0 +1,31 @@
+[workspace]
+members = ["tools/generate-tables"]
+
+[package]
+name = "mac-encoding"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.81"
+description = "Changes text between Apple's classic Mac OS encodings and Unicode. Obeys the WHATWG Encoding Standard."
+keywords = ["macroman", "macintosh", "encoding", "unicode", "classic-mac"]
+categories = ["encoding", "text-processing", "no-std"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/codybrom/mac-encoding"
+documentation = "https://docs.rs/mac-encoding"
+readme = "README.md"
+authors = ["Cody Bromley"]
+# This package has the tables in src/. It does not have Apple's mapping
+# files. SOURCES.lock gives their addresses. ./scripts/fetch-sources.sh
+# downloads them.
+include = [
+    "src/**",
+    "tests/**",
+    "SOURCES.lock",
+    "scripts/**",
+    "README.md",
+    "LICENSE-MIT",
+    "LICENSE-APACHE",
+]
+
+[lib]
+path = "src/lib.rs"

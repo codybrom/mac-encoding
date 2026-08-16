@@ -1,0 +1,93 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: -D warnings
+
+jobs:
+  test:
+    name: Test on ${{ matrix.toolchain }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: [stable, 1.81]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Rust
+        run: |
+          rustup toolchain install ${{ matrix.toolchain }} --profile minimal
+          rustup default ${{ matrix.toolchain }}
+
+      # The repository does not contain Apple's mapping files. Without them,
+      # the comparison tests write a notice and stop. Thus the continuous
+      # integration system must download them.
+      - name: Download the mapping files
+        run: ./scripts/fetch-sources.sh
+
+      - name: Test
+        run: cargo test --workspace --all-targets
+
+      - name: Test the documentation
+        run: cargo test --doc
+
+  lint:
+    name: Format and lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install Rust
+        run: rustup component add rustfmt clippy
+
+      - name: Check the format
+        run: cargo fmt --all --check
+
+      - name: Check the code with clippy
+        run: cargo clippy --workspace --all-targets
+
+  no-std:
+    name: Build without std
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      # This target has no std. If the crate uses std, the build fails.
+      - name: Install the target
+        run: rustup target add thumbv7em-none-eabi
+
+      - name: Build
+        run: cargo build --lib --target thumbv7em-none-eabi
+
+  tables:
+    name: The tables agree with the sources
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Download the mapping files
+        run: ./scripts/fetch-sources.sh
+
+      # If this job fails, src/tables.rs and Apple's mapping files disagree.
+      # Do `cargo run -p generate-tables && cargo fmt` and commit the result.
+      - name: Write the tables again
+        run: |
+          cargo run -p generate-tables
+          cargo fmt
+          git diff --exit-code src/tables.rs
+
+  package:
+    name: Package for crates.io
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Package
+        run: cargo publish --dry-run

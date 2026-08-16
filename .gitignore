@@ -1,0 +1,27 @@
+# The mapping files. ./scripts/fetch-sources.sh downloads them.
+/data/
+
+# Rust build artifacts
+/target/
+
+# The backup files that `cargo fix` and `cargo clippy --fix` make
+**/*.rs.bk
+
+# The debug symbols on macOS and on Windows
+*.pdb
+*.dSYM/
+
+# The results from cargo-llvm-cov and grcov
+*.profraw
+*.profdata
+/coverage/
+
+# Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store

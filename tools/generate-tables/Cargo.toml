@@ -1,0 +1,13 @@
+[package]
+name = "generate-tables"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+# This package does not use `mac-encoding` on purpose. It writes the file
+# `src/tables.rs` of that crate. It must also run when the tables are absent
+# or have a fault.
+
+[[bin]]
+name = "generate-tables"
+path = "src/main.rs"

@@ -1,0 +1,42 @@
+# The sources of the tables in src/tables.rs.
+#
+# The repository does not contain these files. Apple's files have the notice
+# "all rights reserved" and give no permission to supply them to other
+# persons. Thus this file gives the address and the checksum of each file, and
+# the repository does not supply the file.
+#
+# Do ./scripts/fetch-sources.sh to download the files into data/ and to
+# compare them. Then do `cargo run -p generate-tables` to write the tables
+# again.
+#
+# The format of each line: <sha256>  <path in data/>  <address>
+
+# Apple mapping tables, (c) Apple Computer, Inc., all rights reserved.
+# Hosted by the Unicode Consortium.
+c66a997335e65f40aeee8fd63cd1d3b04b74ad50bf32fbf3e4d7214c9497d428  apple/ARABIC.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ARABIC.TXT
+cbc9da3acce632533cf4b8661b4ee3ab16dc510f782aca99bad8a4fa1a0cc99e  apple/CELTIC.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CELTIC.TXT
+5f2e262a66a7d08317555835dcc8445f4666928f13f84a19951b19b42fe0b623  apple/CENTEURO.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CENTEURO.TXT
+59bb8a4d97933c2be2d3b9c0c62ffc8904ceb2a5582d180e52c77a30a45a66de  apple/CORPCHAR.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CORPCHAR.TXT
+cd3b6a79271664df7e4a935766906961bcfc6bf85cc8b9c877381a22044cf84e  apple/CROATIAN.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CROATIAN.TXT
+092ca7d0fe584b3fde176af4f2a175ceeba07b4c1a1c0b472c2016a6c92eafcc  apple/CYRILLIC.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/CYRILLIC.TXT
+65ae8bfdfb279f95d075003256832927a78bd32825970f7098ee90cf503abe6a  apple/DEVANAGA.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/DEVANAGA.TXT
+bed8a47f01f770b3175790a35ad6cf9ee118832f6a31dfa86d2947e1a56043a5  apple/DINGBATS.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/DINGBATS.TXT
+ae9ed45404c3ecf617fbd4a910717eabe5b811a2b216c5503410c42be3616bce  apple/FARSI.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/FARSI.TXT
+d4a4f0db7de96f2c66d929dafb55045eebdcfb77f426f4fd4b8a4ca560b33641  apple/GAELIC.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GAELIC.TXT
+d57b3e0644a54f33396d53f3ca63a8483e96526de0d62be1dcd6eb40399a398e  apple/GREEK.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GREEK.TXT
+ab820f324e5e12f6a612289401e4d4c178962c8f5e6930b93cd8de9737ab55b5  apple/GUJARATI.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GUJARATI.TXT
+da5a0002ef60c33054d9c52b934af29757f86bf2fac4669fe2e825c1b6aa2f69  apple/GURMUKHI.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/GURMUKHI.TXT
+1d3e6c3ca5e0f242df9c22fd5d8ddc669f6b60015bac1c3b7cead487523bf9bf  apple/HEBREW.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/HEBREW.TXT
+39b8d242bd0995a3b9f205273f098c1ff9bab4505a213c4e0313a700e47f26ce  apple/ICELAND.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ICELAND.TXT
+c530d850057be2641415091543c1b0cbb504138fd1773a2fd6bf2a2538d45a58  apple/INUIT.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/INUIT.TXT
+b9b0aca8210c5fe24e2b58bac31d0ef121a4494e3c55cd2bf60e431d665a15dc  apple/KEYBOARD.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/KEYBOARD.TXT
+18e571645be895e9553ed5c842ea8f65f9c5d3c9ccb43e66e0c33a132ed0d721  apple/ROMAN.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMAN.TXT
+a05436e00507e757e8badb5d582985b3c9d765b07609c2aeae9033dcfa02f43a  apple/ROMANIAN.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ROMANIAN.TXT
+b8c529daba09a45872ec3b493e944680528206b829193594dcdd774a02d49d12  apple/SYMBOL.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/SYMBOL.TXT
+ab10c28e8b2b3ee72ea67eed920d67ca8cb2ee86980294769633dc5d1cc9dbd5  apple/THAI.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/THAI.TXT
+afce027def8db108de0607a76f1aae00787a4b2c7a44f68a359d9053c50a30bf  apple/TURKISH.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/TURKISH.TXT
+5a121b8f45b0a32db3df63c79deba201cd22b2f7624f240c8e4ea1e45910bb04  apple/UKRAINE.TXT  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/UKRAINE.TXT
+238758a906d84ec9bd2c5934738768ea96a9c9f9b1a7465741720cdf3ca48391  apple/ReadMe.txt  https://www.unicode.org/Public/MAPPINGS/VENDORS/APPLE/ReadMe.txt
+
+# WHATWG Encoding Standard index, used only to cross-check Mac OS Roman.
+5e2b0aa162f3032cf6c96a119f59f698da80c16d58014080a6bd246d7ade3c38  whatwg/index-macintosh.txt  https://encoding.spec.whatwg.org/index-macintosh.txt
