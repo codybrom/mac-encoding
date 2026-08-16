@@ -33,7 +33,8 @@ jobs:
     permissions:
       # The action needs this permission to get the OIDC token.
       id-token: write
-      contents: read
+      # The last step needs this permission to make the GitHub release.
+      contents: write
     steps:
       - uses: actions/checkout@v7
 
@@ -71,3 +72,26 @@ jobs:
         run: cargo publish
         env:
           CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
+
+      # The notes come from the entry for this version in CHANGELOG.md. This
+      # step comes after the upload, so a failed upload makes no release.
+      - name: Make the GitHub release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${GITHUB_REF_NAME#v}"
+          awk -v v="$version" '
+            $0 ~ "^## \\[" v "\\]" { flag = 1; next }
+            flag && /^## \[/ { exit }
+            flag && /^\[[^]]+\]:/ { exit }
+            flag { print }
+          ' CHANGELOG.md > notes.md
+          if [ ! -s notes.md ]; then
+            echo "CHANGELOG.md has no entry for $version" >&2
+            exit 1
+          fi
+          echo "Published at <https://crates.io/crates/mac-encoding/$version>." >> notes.md
+          gh release create "$GITHUB_REF_NAME" \
+            --title "mac-encoding $version" \
+            --notes-file notes.md
