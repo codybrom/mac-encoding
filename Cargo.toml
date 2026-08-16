@@ -3,7 +3,7 @@ members = ["tools/generate-tables"]
 
 [package]
 name = "mac-encoding"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.81"
 description = "Changes text between Apple's classic Mac OS encodings and Unicode. Obeys the WHATWG Encoding Standard."
@@ -23,6 +23,7 @@ include = [
     "SOURCES.lock",
     "scripts/**",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE-MIT",
     "LICENSE-APACHE",
 ]
